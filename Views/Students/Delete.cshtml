@@ -1,0 +1,33 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Öğrenci Sil</h1>
+
+    <h3>Öğrenciyi silmek istediğinize emin misiniz ?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Ad
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FirstName
+        </dd>
+        <dt class="col-sm-2">
+            Soyad
+        </dt>
+        <dd class="col-sm-10">
+            @Model.LastName
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-outline-danger" />
+        <a asp-action="Index" class="btn btn-outline-success">Listeye Dön</a>
+    </form>
+</div>

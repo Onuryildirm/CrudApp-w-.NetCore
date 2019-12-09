@@ -1,0 +1,43 @@
+﻿@model List<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-block btn-outline-warning bg-dark">Yeni Kişi Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ad
+            </th>
+            <th>
+                Soyad
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.Id">Düzenle</a>
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
